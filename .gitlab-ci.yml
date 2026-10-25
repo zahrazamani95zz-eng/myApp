@@ -1,0 +1,91 @@
+# GitLab CI for the super-app pnpm/Turborepo monorepo.
+# Requires a GitLab Runner that supports Docker images.
+
+image: node:lts-alpine3.24
+
+stages: [verify, build, deploy]
+
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: "$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS"
+      when: never # جلوگیری از pipeline تکراری (branch + MR)
+    - if: "$CI_COMMIT_BRANCH"
+    - if: "$CI_COMMIT_TAG"
+
+variables:
+  COREPACK_HOME: "$CI_PROJECT_DIR/.corepack"
+  PNPM_STORE_DIR: "$CI_PROJECT_DIR/.pnpm-store"
+  TURBO_TELEMETRY_DISABLED: "1"
+  NEXT_TELEMETRY_DISABLED: "1"
+  # متغیرهای NEXT_PUBLIC_* را در Settings > CI/CD > Variables تعریف کنید
+  # (در زمان build داخل bundle قرار می‌گیرند). به .env.example هر app نگاه کنید.
+
+.pnpm-cache: &pnpm-cache
+  key: { files: [pnpm-lock.yaml] }
+  paths: [.pnpm-store/, .corepack/, .turbo/]
+
+default:
+  interruptible: true
+  cache: *pnpm-cache
+  before_script:
+    - corepack enable
+    - corepack prepare pnpm@11.8.0 --activate
+    - pnpm config set store-dir "$PNPM_STORE_DIR"
+    - pnpm config set fetch-timeout 300000
+    - pnpm config set fetch-retries 5
+    - pnpm config set fetch-retry-mintimeout 10000
+    - pnpm config set fetch-retry-maxtimeout 60000
+    - pnpm config set network-concurrency 8
+    - pnpm install --frozen-lockfile
+
+format:
+  stage: verify
+  script: [pnpm format:check]
+
+lint:
+  stage: verify
+  script: [pnpm lint]
+
+type-check:
+  stage: verify
+  script: [pnpm type-check]
+
+unit-tests:
+  stage: verify
+  script: [pnpm test]
+  # بعد از اضافه شدن coverage:
+  # coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
+
+audit:
+  stage: verify
+  script: [pnpm audit --prod --audit-level=high]
+  allow_failure: true
+
+build:
+  stage: build
+  script:
+    - |
+      echo "=== CI variable availability ==="
+      for name in OIDC_ISSUER OIDC_CLIENT_ID OIDC_CLIENT_SECRET AUTH_SECRET ADMIN_API_BASE_URL NEXT_PUBLIC_APP_URL; do
+        if printenv "$name" >/dev/null 2>&1 && [ -n "$(printenv "$name")" ]; then
+          echo "$name: AVAILABLE"
+        else
+          echo "$name: MISSING"
+        fi
+      done
+      echo "=== End variable check ==="
+    - pnpm build
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - apps/*/.next/
+    exclude:
+      - apps/*/.next/cache/**/*
+
+# --- Deploy: بسته به زیرساخت شما (نمونه Docker) ---
+# deploy-staging:
+#   stage: deploy
+#   rules: [{ if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH' }]
+#   environment: { name: staging }
+#   script: [./scripts/deploy.sh staging]

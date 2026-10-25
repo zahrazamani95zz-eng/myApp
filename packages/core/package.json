@@ -1,0 +1,48 @@
+{
+  "name": "@super-app/core",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./domain": {
+      "import": "./dist/domain/index.js",
+      "require": "./dist/domain/index.js",
+      "types": "./dist/domain/index.d.ts"
+    },
+    "./ports": {
+      "import": "./dist/ports/index.js",
+      "require": "./dist/ports/index.js",
+      "types": "./dist/ports/index.d.ts"
+    },
+    "./use-cases": {
+      "import": "./dist/use-cases/index.js",
+      "require": "./dist/use-cases/index.js",
+      "types": "./dist/use-cases/index.d.ts"
+    },
+    "./exceptions": {
+      "import": "./dist/exceptions/index.js",
+      "require": "./dist/exceptions/index.js",
+      "types": "./dist/exceptions/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc --watch",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "test": "vitest run --passWithNoTests",
+    "clean": "rimraf dist tsconfig.tsbuildinfo"
+  },
+  "devDependencies": {
+    "@super-app/typescript-config": "workspace:*",
+    "typescript": "6.0.3",
+    "vitest": "^5.0.5"
+  }
+}

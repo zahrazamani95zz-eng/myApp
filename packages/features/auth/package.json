@@ -1,0 +1,82 @@
+{
+  "name": "@super-app/features-auth",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./csrf": {
+      "import": "./dist/csrf/index.js",
+      "require": "./dist/csrf/index.js",
+      "types": "./dist/csrf/index.d.ts"
+    },
+    "./server": {
+      "import": "./dist/server/index.js",
+      "require": "./dist/server/index.js",
+      "types": "./dist/server/index.d.ts"
+    },
+    "./presentation": {
+      "import": "./dist/presentation/index.js",
+      "require": "./dist/presentation/index.js",
+      "types": "./dist/presentation/index.d.ts"
+    },
+    "./infrastructure": {
+      "import": "./dist/infrastructure/index.js",
+      "require": "./dist/infrastructure/index.js",
+      "types": "./dist/infrastructure/index.d.ts"
+    },
+    "./application": {
+      "import": "./dist/application/index.js",
+      "require": "./dist/application/index.js",
+      "types": "./dist/application/index.d.ts"
+    },
+    "./store": {
+      "import": "./dist/store/index.js",
+      "require": "./dist/store/index.js",
+      "types": "./dist/store/index.d.ts"
+    },
+    "./client": {
+      "import": "./dist/client/index.js",
+      "require": "./dist/client/index.js",
+      "types": "./dist/client/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc --watch",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx",
+    "clean": "rimraf dist tsconfig.tsbuildinfo",
+    "test": "node --experimental-strip-types --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "js-cookie": "^3.0.8",
+    "next-auth": "^5.0.0-beta.32",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@super-app/core": "workspace:*",
+    "@super-app/features-chat-core": "workspace:*",
+    "@super-app/typescript-config": "workspace:*",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^26.0.0",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "next": "^16.4.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "rimraf": "^6.0.0",
+    "typescript": "6.0.3"
+  },
+  "peerDependencies": {
+   "next": "16.4.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  }
+}

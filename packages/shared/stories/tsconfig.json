@@ -1,0 +1,29 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "composite": false,
+    "incremental": false,
+    "declaration": false,
+    "noEmit": true,
+    "rootDir": "..",
+    "outDir": null,
+    "types": ["node", "vite/client"],
+    "paths": {
+      "@super-app/shared": ["../src/index.ts"],
+      "@super-app/shared/theme": ["../src/theme/index.ts"],
+      "@super-app/shared/tenant": ["../src/tenant/index.ts"],
+      "@super-app/shared/ui": ["../src/ui/index.ts"],
+      "@super-app/shared/lib": ["../src/lib/index.ts"],
+      "@super-app/shared/hooks": ["../src/hooks/index.ts"]
+    }
+  },
+  "include": [
+    "./**/*.ts",
+    "./**/*.tsx",
+    "../.storybook/**/*.ts",
+    "../.storybook/**/*.tsx",
+    "../src/**/*"
+  ],
+  "exclude": ["node_modules", "dist"],
+  "references": []
+}

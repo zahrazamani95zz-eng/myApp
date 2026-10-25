@@ -1,0 +1,315 @@
+@keyframes dialog-content-in {
+  from {
+    opacity: 0;
+    scale: 0.95;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes dialog-content-out {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+
+  to {
+    opacity: 0;
+    scale: 0.95;
+  }
+}
+
+@keyframes dialog-overlay-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-overlay-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    scale: 0.98;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes dropdown-out {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+
+  to {
+    opacity: 0;
+    scale: 0.98;
+  }
+}
+
+@keyframes popover-in {
+  from {
+    opacity: 0;
+    scale: 0.96;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes popover-out {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+
+  to {
+    opacity: 0;
+    scale: 0.96;
+  }
+}
+
+@keyframes tooltip-in {
+  from {
+    opacity: 0;
+    scale: 0.95;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes tooltip-out {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+
+  to {
+    opacity: 0;
+    scale: 0.95;
+  }
+}
+
+@keyframes sheet-right-in {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes sheet-right-out {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes sheet-left-in {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes sheet-left-out {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes sheet-top-in {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes sheet-top-out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes sheet-bottom-in {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes sheet-bottom-out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes sheet-overlay-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sheet-overlay-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+@theme {
+  --animate-dialog-content-in: dialog-content-in 200ms ease-out;
+  --animate-dialog-content-out: dialog-content-out 200ms ease-in;
+
+  --animate-dialog-overlay-in: dialog-overlay-in 200ms ease-out;
+  --animate-dialog-overlay-out: dialog-overlay-out 200ms ease-in;
+
+  --animate-dropdown-in: dropdown-in 140ms ease-out;
+  --animate-dropdown-out: dropdown-out 120ms ease-in;
+
+  --animate-popover-in: popover-in 150ms ease-out;
+  --animate-popover-out: popover-out 120ms ease-in;
+
+  --animate-tooltip-in: tooltip-in 120ms ease-out;
+  --animate-tooltip-out: tooltip-out 100ms ease-in;
+
+  --animate-sheet-overlay-in: sheet-overlay-in 200ms ease-out;
+  --animate-sheet-overlay-out: sheet-overlay-out 200ms ease-in;
+
+  --animate-sheet-right-in: sheet-right-in 250ms ease-out;
+  --animate-sheet-right-out: sheet-right-out 200ms ease-in;
+
+  --animate-sheet-left-in: sheet-left-in 250ms ease-out;
+  --animate-sheet-left-out: sheet-left-out 200ms ease-in;
+
+  --animate-sheet-top-in: sheet-top-in 250ms ease-out;
+  --animate-sheet-top-out: sheet-top-out 200ms ease-in;
+
+  --animate-sheet-bottom-in: sheet-bottom-in 250ms ease-out;
+  --animate-sheet-bottom-out: sheet-bottom-out 200ms ease-in;
+
+  --animate-toast-in: toast-in 200ms ease-out;
+  --animate-toast-out: toast-out 200ms ease-in;
+
+  --animate-accordion-down: accordion-down 200ms ease-out;
+  --animate-accordion-up: accordion-up 200ms ease-out;
+}
+
+@keyframes voice-message-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes voice-message-wave-loading {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.58;
+    transform: translateX(3px);
+  }
+}

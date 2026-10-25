@@ -1,0 +1,37 @@
+{
+  "name": "web-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "rimraf .next tsconfig.tsbuildinfo"
+  },
+  "dependencies": {
+    "@super-app/features-ai-chat": "workspace:*",
+    "@super-app/features-assistant-chat": "workspace:*",
+    "@super-app/features-auth": "workspace:*",
+    "@super-app/shared": "workspace:*",
+    "@super-app/store": "workspace:*",
+    "lucide-react": "^1.21.0",
+    "next": "16.4.2",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@super-app/typescript-config": "workspace:*",
+    "@tailwindcss/postcss": "^4.3.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.31",
+    "prettier": "^3.2.5",
+    "tailwindcss": "^4.3.1"
+  }
+}

@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "IRANSans";
+  src: url("@super-app/shared/assets/fonts/woff2/IRANSansXFaNum-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANSans";
+  src: url("@super-app/shared/assets/fonts/woff2/IRANSansXFaNum-Medium.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANSans";
+  src: url("@super-app/shared/assets/fonts/woff2/IRANSansXFaNum-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANSans";
+  src: url("@super-app/shared/assets/fonts/woff2/IRANSansXFaNum-Black.woff2")
+    format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANSans";
+  src: url("@super-app/shared/assets/fonts/woff2/IRANSansXFaNum-ExtraBlack.woff2")
+    format("woff2");
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}

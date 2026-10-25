@@ -1,0 +1,42 @@
+{
+  "name": "@super-app/features-assistant-chat",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@assistant-ui/react": "^0.14.27",
+    "@assistant-ui/react-markdown": "^0.14.6",
+    "@livekit/components-react": "^2.9.4",
+    "@livekit/components-styles": "^1.1.6",
+    "@super-app/features-ai-chat": "workspace:*",
+    "@super-app/features-chat-core": "workspace:*",
+    "@super-app/shared": "workspace:*",
+    "@super-app/store": "workspace:*",
+    "date-fns": "^4.4.0",
+    "livekit-client": "^2.15.6",
+    "lucide-react": "^1.21.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-markdown": "^10.1.0",
+    "react-redux": "^9.3.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -b --watch",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "vitest run --passWithNoTests",
+    "clean": "rimraf dist tsconfig.tsbuildinfo"
+  },
+  "devDependencies": {
+    "vitest": "^5.0.5"
+  }
+}

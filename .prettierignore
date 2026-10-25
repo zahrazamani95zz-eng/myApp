@@ -1,0 +1,52 @@
+
+# پوشه‌های ساخته‌شده
+node_modules
+dist
+build
+.next
+out
+coverage
+
+# فایل‌های لاگ و کش
+*.log
+*.lock
+*.json
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# فایل‌های محیطی
+.env
+.env.*
+!.env.example
+
+# فایل‌های سیستمی
+.DS_Store
+Thumbs.db
+
+# فایل‌های باینری
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.mp4
+*.webm
+*.woff
+*.woff2
+*.ttf
+*.eot
+
+# فایل‌های اختصاصی
+LICENSE
+CHANGELOG.md
+
+.pnpm-store/
+.corepack/
+.turbo/
+storybook-static/
+node_modules/
+.next/
+dist/
+build/
+coverage/

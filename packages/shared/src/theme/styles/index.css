@@ -1,0 +1,26 @@
+@import "./animations.css";
+
+/*
+ * Shared RTL workspace geometry.
+ * Desktop: the sidebar is fixed on the right and the main column is explicitly
+ * sized from its right edge. This prevents any content (especially wide tables)
+ * from ever rendering underneath the sidebar.
+ * Mobile: the sidebar becomes an overlay drawer, so the main column uses the
+ * full viewport width.
+ */
+.workspace-main-column {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  min-width: 0;
+  transition: right 300ms ease-out;
+}
+
+@media (max-width: 1023px) {
+  .workspace-main-column {
+    right: 0 !important;
+  }
+}

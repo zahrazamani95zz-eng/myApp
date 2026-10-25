@@ -1,0 +1,9 @@
+export { RolesPage } from "./roles/RolesPage";
+export { PermissionsPage } from "./permissions/PermissionsPage";
+export { ScopesPage } from "./scopes/ScopesPage";
+export { MenusPage } from "./menus/MenusPage";
+export { AuthorizationsPage } from "./authorizations/AuthorizationsPage";
+export { TokensPage } from "./tokens/TokensPage";
+export { AuditLogsPage } from "./audit-logs/AuditLogsPage";
+export { SystemPage } from "./system/SystemPage";
+export { SettingsPage } from "./settings/SettingsPage";

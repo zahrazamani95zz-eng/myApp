@@ -1,0 +1,80 @@
+
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    "**/.env.*local"
+  ],
+  "concurrency": "12",
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "dist/**"
+      ],
+      "env": [
+        "OIDC_ISSUER",
+        "OIDC_CLIENT_ID",
+        "OIDC_CLIENT_SECRET",
+        "AUTH_SECRET",
+        "ADMIN_API_BASE_URL",
+        "NEXT_PUBLIC_EMQX_WS_URL",
+        "NEXT_PUBLIC_EMQX_USERNAME",
+        "NEXT_PUBLIC_EMQX_TOPIC_PREFIX",
+        "NEXT_PUBLIC_API_URL",
+        "NEXT_PUBLIC_API_HISTORY_URL",
+        "NEXT_PUBLIC_FEEDBACK_URL",
+        "NEXT_PUBLIC_TTS_BASE_URL",
+        "NEXT_PUBLIC_VOICE_BASE_URL",
+        "NEXT_PUBLIC_APP_URL"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "storybook": {
+      "cache": false,
+      "persistent": true
+    },
+    "build-storybook": {
+      "outputs": [
+        "storybook-static/**"
+      ]
+    },
+   "test": {
+  "outputs": []
+},
+    "lint": {
+      "dependsOn": [
+        "^lint"
+      ],
+      "outputs": []
+    },
+    "format": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": []
+    },
+    "format:check": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": []
+    },
+    "type-check": {
+      "dependsOn": [
+        "^build",
+        "^type-check"
+      ],
+      "outputs": []
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}

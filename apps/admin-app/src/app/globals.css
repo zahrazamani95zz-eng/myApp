@@ -1,0 +1,516 @@
+@import "tailwindcss";
+
+/* @import "@avan-persian/themes/default.css";
+@import "@avan-persian/react/client.css"; */
+@import "../../../../packages/shared/src/theme/styles/index.css";
+@import "@super-app/shared/theme/styles/fonts.css";
+@source "../../../../packages/shared/src";
+@source "../../../../packages/features";
+
+:root {
+  --primary: #356b5a;
+  --secondary: #4a9b7b;
+  --accent: #8bbca8;
+  --background: #f5f7f6;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --text: #18221f;
+  --text-secondary: #5d6e67;
+  --text-muted: #87968f;
+  --border: #e1e8e4;
+  --border-strong: #c8d6cf;
+  --success: #269b70;
+  --warning: #d79a2b;
+  --danger: #d45563;
+  --info: #4b8790;
+  --overlay: rgba(17, 31, 22, 0.18);
+  --radius: 16px;
+  color-scheme: light;
+  font-family:
+    "IRANSans",
+    Vazirmatn,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif !important;
+}
+
+.dark {
+  --primary: #62ae94;
+  --secondary: #45a987;
+  --accent: #94cdb7;
+  --background: #0c1210;
+  --surface: #111917;
+  --card: #17231f;
+  --text: #edf5f1;
+  --text-secondary: #b4c5be;
+  --text-muted: #82958d;
+  --border: #263832;
+  --border-strong: #3a5148;
+  --success: #58c99b;
+  --warning: #e6b45e;
+  --danger: #ef7884;
+  --info: #72b8c7;
+  --overlay: rgba(0, 0, 0, 0.58);
+  color-scheme: dark;
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+}
+
+html,
+body {
+  min-height: 100%;
+  font-family:
+    "IRANSans",
+    Vazirmatn,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif !important;
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      color-mix(in srgb, var(--primary) 8%, transparent),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      color-mix(in srgb, var(--secondary) 6%, transparent),
+      transparent 30%
+    ),
+    var(--background);
+  color: var(--text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--primary) 24%, transparent);
+  color: var(--text);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+.dark *::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+}
+.dark *::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+.chat-scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+.chat-scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-scroll-area::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+
+/* Shared premium surface language across all three apps. */
+.bg-card {
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--card) 96%, var(--primary) 4%),
+    var(--card)
+  );
+}
+
+.bg-surface {
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--surface) 97%, var(--primary) 3%),
+    var(--surface)
+  );
+}
+
+.border-border {
+  border-color: color-mix(in srgb, var(--border) 92%, var(--primary) 8%);
+}
+
+.shadow-sm {
+  box-shadow:
+    0 1px 2px rgba(15, 30, 23, 0.04),
+    0 8px 24px rgba(15, 30, 23, 0.055);
+}
+
+.dark .shadow-sm {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.28),
+    0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.bg-primary {
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    color-mix(in srgb, var(--primary) 72%, var(--secondary) 28%)
+  );
+}
+
+.bg-secondary {
+  background: linear-gradient(
+    135deg,
+    var(--secondary),
+    color-mix(in srgb, var(--secondary) 72%, var(--primary) 28%)
+  );
+}
+
+/* Make existing interactive surfaces feel tactile without changing component logic. */
+button,
+[role="button"] {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+button:not(:disabled):hover,
+[role="button"]:not([aria-disabled="true"]):hover {
+  transform: translateY(-1px);
+}
+
+button:active,
+[role="button"]:active {
+  transform: translateY(0);
+}
+
+input,
+textarea,
+select {
+  border-color: var(--border);
+  background: color-mix(in srgb, var(--surface) 96%, var(--primary) 4%);
+  color: var(--text);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--primary) 68%, var(--border) 32%);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 12%, transparent);
+}
+
+/* Slate / Emerald premium layer */
+:root {
+  --emerald-glow: color-mix(in srgb, var(--secondary) 14%, transparent);
+  --primary-glow: color-mix(in srgb, var(--primary) 16%, transparent);
+}
+
+.bg-card {
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      color-mix(in srgb, var(--secondary) 7%, transparent),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--card) 97%, var(--primary) 3%),
+      var(--card)
+    );
+  box-shadow:
+    0 1px 2px rgba(15, 35, 28, 0.04),
+    0 14px 34px color-mix(in srgb, var(--primary) 7%, transparent);
+}
+
+.bg-surface {
+  background:
+    radial-gradient(
+      circle at 0% 100%,
+      color-mix(in srgb, var(--primary) 5%, transparent),
+      transparent 42%
+    ),
+    var(--surface);
+}
+
+.dark .bg-card {
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      color-mix(in srgb, var(--secondary) 10%, transparent),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--card) 94%, var(--primary) 6%),
+      var(--card)
+    );
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.32),
+    0 18px 42px color-mix(in srgb, var(--primary) 8%, transparent);
+}
+
+.dark .bg-surface {
+  background:
+    radial-gradient(
+      circle at 0% 100%,
+      color-mix(in srgb, var(--secondary) 5%, transparent),
+      transparent 44%
+    ),
+    var(--surface);
+}
+
+/* Subtle glass language: use on existing glass/overlay surfaces without changing layout. */
+.glass {
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border) 82%, var(--secondary) 18%);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--primary) 7%, transparent);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.dark .glass {
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  border-color: color-mix(in srgb, var(--border) 78%, var(--secondary) 22%);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+}
+
+.bg-primary {
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    color-mix(in srgb, var(--primary) 76%, var(--secondary) 24%) 100%
+  );
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.bg-secondary {
+  background: linear-gradient(
+    135deg,
+    var(--secondary) 0%,
+    color-mix(in srgb, var(--secondary) 78%, var(--primary) 22%) 100%
+  );
+}
+
+/* Premium panel hierarchy: visible separation without harsh divider lines. */
+.chat-page {
+  position: relative;
+  isolation: isolate;
+}
+.chat-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      circle at 78% 8%,
+      color-mix(in srgb, var(--secondary) 9%, transparent),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 8% 92%,
+      color-mix(in srgb, var(--primary) 7%, transparent),
+      transparent 30%
+    );
+}
+.chat-canvas {
+  position: relative;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface) 58%, transparent),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 50% 0%,
+      color-mix(in srgb, var(--primary) 4%, transparent),
+      transparent 42%
+    );
+}
+.dark .chat-canvas {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface) 72%, transparent),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 50% 0%,
+      color-mix(in srgb, var(--secondary) 5%, transparent),
+      transparent 44%
+    );
+}
+.chat-page .border-border\/65,
+.chat-page .border-border\/70,
+.chat-page .border-border\/75 {
+  border-color: color-mix(in srgb, var(--border) 82%, var(--secondary) 18%);
+}
+
+/* Final premium UI polish */
+.chat-panel,
+.chat-sidebar {
+  border: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+  box-shadow: 0 10px 34px color-mix(in srgb, var(--primary) 6%, transparent);
+}
+.chat-sidebar {
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+}
+.chat-header {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--card) 98%, var(--primary) 2%),
+    color-mix(in srgb, var(--card) 92%, transparent)
+  );
+}
+.chat-avatar {
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    color-mix(in srgb, var(--primary) 72%, var(--secondary) 28%)
+  );
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+.chat-main {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--surface) 55%, transparent),
+    transparent 28%
+  );
+}
+.dark .chat-panel,
+.dark .chat-sidebar {
+  border-color: color-mix(in srgb, var(--border) 88%, transparent);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
+}
+.dark .chat-header {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--card) 97%, var(--primary) 3%),
+    color-mix(in srgb, var(--card) 88%, transparent)
+  );
+}
+
+/* Consistent premium controls */
+button,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Tables and dense admin surfaces */
+table {
+  border-collapse: separate;
+  border-spacing: 0 6px;
+}
+thead tr {
+  background: transparent !important;
+}
+tbody tr {
+  transition:
+    background-color 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+tbody tr:hover {
+  background: color-mix(in srgb, var(--primary) 4%, var(--card));
+}
+
+/* Avoid accidental hard divider feeling */
+.border-border {
+  border-color: color-mix(in srgb, var(--border) 84%, transparent);
+}
+
+.documents-filter-card {
+  isolation: isolate;
+}
+
+.documents-filter-input {
+  width: 100%;
+  height: 40px;
+  min-height: 40px;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+.documents-filter-date {
+  min-width: 0;
+}
+
+.documents-filter-date > *:last-child {
+  width: 100%;
+}
+
+.documents-filter-date input,
+.documents-filter-date button {
+  height: 40px;
+  min-height: 40px;
+  box-sizing: border-box;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--text);
+  font-size: 0.875rem;
+}
+
+.documents-filter-date [role="dialog"],
+.documents-filter-date [data-radix-popper-content-wrapper],
+.documents-filter-date [data-popper-placement] {
+  z-index: 1000 !important;
+}
